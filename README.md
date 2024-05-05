@@ -6,10 +6,43 @@
 - Alfredo Montero López C411
 - Anthuán Montes de Oca C411
 
+
+## Como usar el programa
+Para ejecutar el programa solamente tiene que ejecutar el archivo main.py usando el comando `py main.py`.
+
+Para entrar los datos solo tiene que llenar los datos en datos.json .
+
+El json tiene la forma:
+
+      {
+   
+         "subjects": [],   // Nombres de las asignaturas
+
+         "subject_times": { asignatura : número },   // Cantidad de turnos por semana que debe tener cada asignatura
+
+         "teachers": [],   // Nombres de todos los profesores
+
+         "classrooms": [],  // Nombres de las aulas
+
+         "groups": [],  // Nombres de los grupos
+
+         "group_subject_times": { grupo : { asignatura : frecuencia }}, // Frecuencia que debe tener cada asignatura por cada grupo en la semana
+
+         "shifts": [],  // Turnos existentes en el día
+
+         "days": [],  // Días de la semana que se van programar
+
+         "teachers_to_subjects": { profesor : [ asignatura ] }  // Asignación de cada profesor a su asignatura correspondiente
+      }
+
+Se puede basar en los datos de ejemplo ya existentes en el json.
+
 # Informe: Planificador de Horarios
 
 ## Descripción del Proyecto
-El proyecto consiste en desarrollar un planificador de horarios utilizando la biblioteca OR-Tools en Python. El objetivo es generar horarios escolares o universitarios que cumplan con todas las restricciones y condiciones establecidas. El sistema debe considerar asignaturas, profesores, aulas, grupos de estudiantes, días y turnos.
+Este proyecto fue realizado para dar solución al problema de la confección del horario de MATCOM. El objetivo de este trabajo es diseñar e implementar una aplicación para la confección automática del horario en MATCOM.  Se tienen en cuenta las restricciones reales a la hora de confeccionar el horario en la facultad.
+
+El proyecto se desarrolló utilizando la biblioteca OR-Tools en Python. El sistema considera asignaturas, profesores, aulas, grupos de estudiantes, días y turnos.
 
 ## Componentes del Proyecto
 
@@ -39,7 +72,7 @@ El proyecto consiste en desarrollar un planificador de horarios utilizando la bi
 El programa lee la información de los parámetros del problema desde datos.json. Este archivo contiene la información de las asignaturas, profesores, aulas, grupos y restricciones del problema.
 ### Output
 El programa genera un archivo Excel llamado output.xlsx que contiene el horario optimizado para cada grupo. Cada hoja del archivo Excel representa el horario de un grupo en particular.
-## Reporte técnico
+# Reporte técnico
 El modelo de optimización utilizado en este código es un problema de programación de restricciones (Constraint Programming, CP) que se resuelve utilizando la biblioteca OR-Tools de Google. 
 
 El problema modelado es la planificación de horarios para un conjunto de grupos, asignaturas, profesores y aulas.  El modelo se basa en las siguientes entidades:
