@@ -93,5 +93,85 @@
         "HectorP" : ["ProgramacionCp"],
         "CarlaP" : ["ProgramacionCp"]
         
+    },
+
+    "hards_true": {
+
+        "A":{  
+            "teachers_names": ["Piad", "Idania"],
+            "subjects_names": ["Programacion", "ProgramacionCp", "Algebra", "AlgebraCP", "Analisis", "AnalisisCp", "Logica", "LogicaCp"],
+            "classrooms_names": ["1", "2", "3", "4", "5"],
+            "groups_names": ["C112"],
+            "shifts": [1, 2],
+            "days": [1]
+        },
+
+        "B":{  
+            "teachers_names": ["Yudivian"],
+            "subjects_names": ["Programacion", "ProgramacionCp", "Algebra", "AlgebraCP", "Analisis", "AnalisisCp", "Logica", "LogicaCp"],
+            "classrooms_names": ["1", "2", "3"],
+            "groups_names": ["C114"],
+            "shifts": [1, 2, 3],
+            "days": [1, 2, 3, 4, 5]
+        }
+    },
+
+    "hards_false": {
+
+        "A":{  
+            "teachers_names": ["Piad","Idania", "Celia", "Yudivian", "DanielL", "OmarL", "CarmenL", "ErnestoA", "CristinaA", "MercedesA", "DalianisAL", "PepeAl", "CayetanaAL", "PacoP", "HectorP", "CarlaP"],
+            "subjects_names": ["Programacion", "ProgramacionCp", "Algebra", "AlgebraCP", "Analisis", "AnalisisCp", "Logica", "LogicaCp"],
+            "classrooms_names": ["1", "2", "3", "4", "5"],
+            "groups_names": ["C111", "C112", "C113", "C114", "C115"],
+            "shifts": [1],
+            "days": [5]
+        },
+
+        "B":{  
+            "teachers_names": ["Yudivian"],
+            "subjects_names": ["Programacion", "ProgramacionCp", "Algebra", "AlgebraCP", "Analisis", "AnalisisCp", "Logica", "LogicaCp"],
+            "classrooms_names": ["5"],
+            "groups_names": ["C111", "C112", "C113", "C114", "C115"],
+            "shifts": [1, 2, 3],
+            "days": [1, 2, 3, 4, 5]
+        }
+    },
+
+    "softs_max": {
+
+        "A":{  
+            "teachers_names": ["Piad","Idania", "Celia", "Yudivian", "DanielL", "OmarL", "CarmenL", "ErnestoA", "CristinaA", "MercedesA", "DalianisAL", "PepeAl", "CayetanaAL", "PacoP", "HectorP", "CarlaP"],
+            "subjects_names": ["Programacion"],
+            "classrooms_names": ["1", "2", "3", "4", "5"],
+            "groups_names": ["C111", "C112", "C113", "C114", "C115"],
+            "shifts": [3],
+            "days": [2],
+            "alpha": 99
+        }
+    },
+
+    "softs_min": {
+
+        "A":{  
+            "teachers_names": ["Piad","Idania", "Celia", "Yudivian", "DanielL", "OmarL", "CarmenL", "ErnestoA", "CristinaA", "MercedesA", "DalianisAL", "PepeAl", "CayetanaAL", "PacoP", "HectorP", "CarlaP"],
+            "subjects_names": ["Programacion", "ProgramacionCp", "Algebra", "AlgebraCP", "Analisis", "AnalisisCp", "Logica", "LogicaCp"],
+            "classrooms_names": ["1", "2", "3", "4", "5"],
+            "groups_names": ["C111", "C112", "C113", "C114", "C115"],
+            "shifts": [1, 2, 3],
+            "days": [5],
+            "alpha": 99
+        },
+
+        "B":{  
+            "teachers_names": ["Piad","Idania", "Celia", "Yudivian", "DanielL", "OmarL", "CarmenL", "ErnestoA", "CristinaA", "MercedesA", "DalianisAL", "PepeAl", "CayetanaAL", "PacoP", "HectorP", "CarlaP"],
+            "subjects_names": ["Programacion", "ProgramacionCp", "Algebra", "AlgebraCP", "Analisis", "AnalisisCp", "Logica", "LogicaCp"],
+            "classrooms_names": ["1", "2", "3", "4", "5"],
+            "groups_names": ["C111", "C112", "C113", "C114", "C115"],
+            "shifts": [3],
+            "days": [1, 2, 3, 4, 5],
+            "alpha": 9
+        }
     }
+
+
 }
