@@ -33,6 +33,57 @@ El json tiene la forma:
          "days": [],  // Días de la semana que se van programar
 
          "teachers_to_subjects": { profesor : [ asignatura ] }  // Asignación de cada profesor a su asignatura correspondiente
+
+         "hards_true": {
+            "(nombre de la restriccion)": {  
+            "teachers_names": [],
+            "subjects_names": [],
+            "classrooms_names": []
+            "groups_names": []],
+            "shifts": [],
+            "days": []
+            },
+            ...
+         },  // Restricciones que deben cumplirse
+
+         "hards_false": {
+
+            "(nombre de la restriccion)":{  
+               "teachers_names": [],
+               "subjects_names": [],
+               "classrooms_names": [],
+               "groups_names": [],
+               "shifts": [],
+               "days": []
+            },
+            ...
+         }, // Restricciones que deben  no cumplirse
+
+         "softs_max": {
+            (nombre de la restriccion):{  
+               "teachers_names": [],
+               "subjects_names": [],
+               "classrooms_names": [],
+               "groups_names": [],
+               "shifts": [],
+               "days": [],
+               "alpha": (number)
+            },
+            ...
+         },
+
+         "softs_min": {
+            (nombre de la restriccion):{  
+               "teachers_names": [],
+               "subjects_names": [],
+               "classrooms_names": [],
+               "groups_names": [],
+               "shifts": [],
+               "days": [],
+               "alpha": (number)
+            },
+            ...
+         },
       }
 
 Se puede basar en los datos de ejemplo ya existentes en el json.
@@ -75,6 +126,16 @@ El programa genera un archivo Excel llamado output.xlsx que contiene el horario 
 # Reporte técnico
 El modelo de optimización utilizado en este código es un problema de programación de restricciones (Constraint Programming, CP) que se resuelve utilizando la biblioteca OR-Tools de Google. 
 
+La Programación de Restricciones es un paradigma de programación declarativa que permite codificar problemas de decisión complejos modelando sus restricciones y buscando soluciones que las satisfagan. En lugar de especificar un procedimiento paso a paso para llegar a la solución, en la Programación de Restricciones se describe el problema en términos de variables y restricciones sobre estas variables.
+
+El solucionador de Programación de Restricciones de OR-Tools, llamado CP-SAT, utiliza un algoritmo de búsqueda basado en backtracking para explorar el espacio de soluciones, y técnicas de propagación de restricciones para reducir este espacio.
+
+El modelo matemático subyacente en la Programación de Restricciones es un problema de satisfacción de restricciones (CSP), que se puede formular de la siguiente manera:
+
+Se tiene un conjunto de variables, cada una con un dominio de posibles valores.
+Se tienen restricciones que especifican las combinaciones de valores que las variables pueden tomar.
+El objetivo es encontrar una asignación de valores a las variables que satisfaga todas las restricciones. En algunos casos, también se puede buscar la mejor solución según una función objetivo.
+
 El problema modelado es la planificación de horarios para un conjunto de grupos, asignaturas, profesores y aulas.  El modelo se basa en las siguientes entidades:
 - Asignaturas: Cada asignatura tiene un tiempo asignado que representa la cantidad de horas que se deben programar para esa asignatura.
 - Profesores: Cada profesor tiene una lista de asignaturas que puede enseñar.
@@ -85,8 +146,10 @@ Las restricciones del modelo son las siguientes:
 - Restricción de asignatura: Para cada grupo, todas las asignaturas deben ser programadas el número de horas especificado.
 - Restricción de profesor: Un profesor solo puede estar en un aula a la vez.
 - Restricción de aula: Solo se puede programar una asignatura en un aula en un turno específico.
+- Restricciones fuertes: Se pueden añadir manualmente restricciones fuertes máximas y mínimas en el JSON de datos. Estas restricciones deben ser cumplidas obligatoriamente.
+- Restricciones débiles: Se pueden añadir manualmente restricciones débiles máximas y mínimas en el JSON de datos. Estas restricciones son preferencias y no necesariamente deben ser cumplidas.
 
-El objetivo del modelo es encontrar una asignación de asignaturas a aulas y profesores que cumpla con todas las restricciones.  El código también incluye la capacidad de agregar restricciones opcionales, que son restricciones que el modelo intentará cumplir pero que no son obligatorias. Estas restricciones opcionales se pueden utilizar para modelar preferencias, como la preferencia de un profesor por enseñar en ciertos turnos o la preferencia de un grupo por tener ciertas asignaturas en ciertos días.  El modelo se resuelve utilizando el solucionador de programación de restricciones de OR-Tools. Una vez que se encuentra una solución, el código genera un horario que cumple con todas las restricciones y preferencias.
+El objetivo del modelo es encontrar una asignación de asignaturas a aulas y profesores que cumpla con todas las restricciones.  El código también incluye la capacidad de agregar restricciones opcionales, que son restricciones que el modelo intentará cumplir pero que no son obligatorias. El modelo se resuelve utilizando el solucionador de programación de restricciones de OR-Tools. Una vez que se encuentra una solución, el código genera un horario que cumple con todas las restricciones y preferencias.
 
 ## Beneficios del Proyecto
 - **Automatización**: Reduce el esfuerzo manual en la creación de horarios.
