@@ -11,7 +11,7 @@ def load_data_from_json(file_path):
 def main():
     
     # Cargar datos desde el archivo JSON
-    data = load_data_from_json('src\datos.json')
+    data = load_data_from_json('datos.json')
 
     subjects_name_list = data['subjects']
     dict_subjects_by_time = data['subject_times']
