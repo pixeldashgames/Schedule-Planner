@@ -1,5 +1,5 @@
 class Base:
-    def __init__(self, nombre: str | int):
+    def __init__(self, nombre):
         self.nombre = nombre
 
 class Curso:
@@ -48,7 +48,7 @@ class Grupo(Base):
             'calendario': {str(k): v.to_dict() for k, v in self.calendario.items()}
         }
 
-def grupos_a_json(grupos: dict[str, Grupo]):
+def grupos_a_json(grupos):
     # Obtener solo los valores del diccionario
     valores_grupo: list[Grupo] = grupos.values()
     grupos_dict = [grupo.to_dict() for grupo in valores_grupo]
