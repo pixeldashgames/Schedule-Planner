@@ -143,12 +143,10 @@ El problema modelado es la planificación de horarios para un conjunto de grupos
 - Aulas: Las aulas son los lugares donde se imparten las asignaturas.
 
 Las restricciones del modelo son las siguientes:  
-- Restricción de asignatura: Para cada grupo, todas las asignaturas deben ser programadas el número de horas especificado.
-- Restricción de profesor: Un profesor solo puede estar en un aula a la vez.
-- Restricción de aula: Solo se puede programar una asignatura en un aula en un turno específico.
-- Restricciones fuertes: Se pueden añadir manualmente restricciones fuertes máximas y mínimas en el JSON de datos. Estas restricciones deben ser cumplidas obligatoriamente.
-- Restricciones débiles: Se pueden añadir manualmente restricciones débiles máximas y mínimas en el JSON de datos. Estas restricciones son preferencias y no necesariamente deben ser cumplidas.
-
+- Restricciones de asignación de asignaturas a grupos: En la clase PlanificadorHorario, se crea una variable booleana para cada combinación de profesor, asignatura, aula, grupo, turno y día. Luego, se agrega una restricción al modelo que dice que la suma de estas variables para una asignatura y grupo dados, en todos los profesores, aulas, turnos y días, debe ser igual al tiempo asignado a esa asignatura. Esto significa que cada asignatura debe ser asignada a cada grupo para el número correcto de turnos. 
+- Restricciones de asignación de profesores: En la clase RestriccionProfesor, se crea una variable booleana para cada combinación de día, turno, profesor y aula. Luego, se agrega una restricción al modelo que dice que la suma de estas variables para un profesor dado, en un día y turno específicos, y en todas las aulas, debe ser menor o igual a 1. Esto significa que un profesor solo puede estar en una aula en un turno y día específicos. 
+- Restricciones de asignación de aulas: En la clase RestriccionAula, se crea una variable booleana para cada combinación de día, turno, asignatura y aula. Luego, se agrega una restricción al modelo que dice que la suma de estas variables para una asignatura dada, en un día y turno específicos, y en todas las aulas, debe ser menor o igual a 1. Esto significa que una asignatura solo puede ser asignada a una aula en un turno y día específicos.
+- Restricciones opcionales: Las restricciones opcionales se manejan a través de los métodos agregar_restricciones_hard_opcionales, agregar_restricciones_hard_falsas, agregar_restricciones_hard_verdaderas, agregar_restricciones_suaves_maximizar y agregar_restricciones_suaves_minimizar. Estos métodos permiten agregar restricciones adicionales al modelo que pueden ser verdaderas o falsas, y que el modelo intentará maximizar o minimizar.
 El objetivo del modelo es encontrar una asignación de asignaturas a aulas y profesores que cumpla con todas las restricciones.  El código también incluye la capacidad de agregar restricciones opcionales, que son restricciones que el modelo intentará cumplir pero que no son obligatorias. El modelo se resuelve utilizando el solucionador de programación de restricciones de OR-Tools. Una vez que se encuentra una solución, el código genera un horario que cumple con todas las restricciones y preferencias.
 
 ## Beneficios del Proyecto
