@@ -6,7 +6,7 @@ from printer import to_data_frame
 from aJson import Grupo
 
 class BaseDeResoluciónDeHorarios:
-    def _verificar_existencia_en_lista(self, lista_a_verificar: list[str | int], lista_correcta: list[str | int], tipo_nombre: str):
+    def _verificar_existencia_en_lista(self, lista_a_verificar, lista_correcta, tipo_nombre: str):
         """
         Este método verifica que para las restricciones que se añaden, los profesores son los que se añadieron inicialmente.
         :param lista_a_verificar: La lista que se verifica para las nuevas restricciones.
@@ -18,7 +18,7 @@ class BaseDeResoluciónDeHorarios:
             if elemento not in lista_correcta:
                 raise Exception(f'El {tipo_nombre}: {elemento} no existe')
 
-    def verificar_asignaturas_por_tiempo(self, lista_nombres_asignaturas: list[str], diccionario_asignaturas_por_tiempo: dict[str, int]):
+    def verificar_asignaturas_por_tiempo(self, lista_nombres_asignaturas, diccionario_asignaturas_por_tiempo):
         longitud_diccionario = len(diccionario_asignaturas_por_tiempo)
         longitud_lista = len(lista_nombres_asignaturas)
         if longitud_lista != longitud_diccionario:
@@ -27,8 +27,8 @@ class BaseDeResoluciónDeHorarios:
             if elemento not in diccionario_asignaturas_por_tiempo:
                 raise Exception(f'La asignatura {elemento} no tiene tiempo asignado')
 
-    def verificar_asignatura_por_grupo(self, diccionario_asignaturas_por_tiempo: dict[str, int],
-                                       diccionario_grupo_asignatura_tiempo: dict[str, dict[str, int]], nombres_grupos: list[str]):
+    def verificar_asignatura_por_grupo(self, diccionario_asignaturas_por_tiempo,
+                                       diccionario_grupo_asignatura_tiempo, nombres_grupos):
         """
         Verifica que en cada grupo se tengan asignaturas correctas y que estas tengan al menos el mínimo de horas estipulado.
         :param diccionario_asignaturas_por_tiempo:
@@ -59,17 +59,17 @@ class BaseDeResoluciónDeHorarios:
                     raise Exception(
                         f'En el grupo:{grupo} la asignatura {tiempo_asignado_grupo_asignatura} horas y tiene un mínimo de {tiempo_minimo_asignatura} horas')
 
-    def verificar_nombres_asignaturas(self, lista_nombres: list[str], conjunto_nombres_totales: set[str], nombre_profesor: str):
+    def verificar_nombres_asignaturas(self, lista_nombres, conjunto_nombres_totales, nombre_profesor: str):
         for nombre in lista_nombres:
             if nombre not in conjunto_nombres_totales:
                 raise Exception(f'El profesor:{nombre_profesor} tiene la asignatura:{nombre} y esta no existe')
             
-    def verificar_profesores(self, nombres_profesores: list[str], diccionario_profesores_a_asignaturas: dict[str, list[str]],
-                             lista_nombres_asignaturas: list[str]):
+    def verificar_profesores(self, nombres_profesores, diccionario_profesores_a_asignaturas,
+                             lista_nombres_asignaturas):
         for profesor in nombres_profesores:
             if profesor not in diccionario_profesores_a_asignaturas:
                 raise Exception(f'El profesor:{profesor} no tiene asignaturas asignadas')
-            lista_asignaturas_profesor: list[str] = diccionario_profesores_a_asignaturas[profesor]
+            lista_asignaturas_profesor  = diccionario_profesores_a_asignaturas[profesor]
 
             # Verificar que existan menos o igual cantidad de asignaturas asignadas al profesor que las que realmente existen.
             longitud_lista_asignaturas_profesor = len(lista_asignaturas_profesor)
@@ -79,30 +79,30 @@ class BaseDeResoluciónDeHorarios:
             # Verificar que las asignaturas que tenga el profesor sean válidas.
             self.verificar_nombres_asignaturas(lista_asignaturas_profesor, set(lista_nombres_asignaturas), profesor)
 
-    def verificar(self, lista_nombres_materias: list[str], dict_materias_por_tiempo: dict[str:int], lista_nombres_profesores: list[str],
-                  lista_nombres_grupos: list[str], dict_grupo_materia_tiempo: dict[str, dict[str:int]],
-                  dict_profesores_a_materias: dict[str, list[str]]):
+    def verificar(self, lista_nombres_materias, dict_materias_por_tiempo, lista_nombres_profesores,
+                  lista_nombres_grupos, dict_grupo_materia_tiempo,
+                  dict_profesores_a_materias):
         self.verificar_asignaturas_por_tiempo(lista_nombres_materias, dict_materias_por_tiempo)
         self.verificar_asignatura_por_grupo(dict_materias_por_tiempo, dict_grupo_materia_tiempo, lista_nombres_grupos)
         self.verificar_profesores(lista_nombres_profesores, dict_profesores_a_materias, lista_nombres_materias)
 
-    def __init__(self, lista_nombres_materias: list[str], dict_materias_por_tiempo: dict[str, int], lista_nombres_profesores: list[str],
-                 lista_nombres_aulas: list[str],
-                 lista_nombres_grupos: list[str], dict_grupo_materia_tiempo: dict[str, dict[str, int]], turnos: list[int],
-                 dias: list[int], dict_profesores_a_materias: dict[str, list[str]]):
+    def __init__(self, lista_nombres_materias, dict_materias_por_tiempo, lista_nombres_profesores,
+                 lista_nombres_aulas,
+                 lista_nombres_grupos, dict_grupo_materia_tiempo, turnos,
+                 dias, dict_profesores_a_materias):
 
         # Verificar que los datos no tengan errores entre ellos
         self.verificar(lista_nombres_materias, dict_materias_por_tiempo, lista_nombres_profesores, lista_nombres_grupos, dict_grupo_materia_tiempo,
                        dict_profesores_a_materias)
 
-        self.lista_nombres_materias: list[str] = lista_nombres_materias
+        self.lista_nombres_materias  = lista_nombres_materias
         self.dict_materias_por_tiempo: dict[str:int] = dict_materias_por_tiempo
-        self.lista_nombres_profesores: list[str] = lista_nombres_profesores
-        self.lista_nombres_aulas: list[str] = lista_nombres_aulas
-        self.lista_nombres_grupos: list[str] = lista_nombres_grupos
+        self.lista_nombres_profesores  = lista_nombres_profesores
+        self.lista_nombres_aulas  = lista_nombres_aulas
+        self.lista_nombres_grupos  = lista_nombres_grupos
         self.dict_grupo_materia_tiempo: dict[str, dict[str, int]] = dict_grupo_materia_tiempo
-        self.turnos: list[int] = turnos
-        self.dias: list[int] = dias
+        self.turnos  = turnos
+        self.dias  = dias
         self.dict_profesores_a_materias: dict[str, list[str]] = dict_profesores_a_materias
 
         self._variables: dict = {}
@@ -116,10 +116,10 @@ class BaseDeResoluciónDeHorarios:
         self._variables = valor
 
 class RestriccionAula(BaseDeResoluciónDeHorarios):
-    def __init__(self, lista_nombres_materias: list[str], dict_materias_por_tiempo: dict[str, int], lista_nombres_profesores: list[str],
-                 lista_nombres_aulas: list[str],
-                 lista_nombres_grupos: list[str], dict_grupo_materia_tiempo: dict[str, dict[str, int]], turnos: list[int],
-                 dias: list[int], dict_profesores_a_materias: dict[str, list[str]], modelo: CpModel):
+    def __init__(self, lista_nombres_materias, dict_materias_por_tiempo, lista_nombres_profesores,
+                 lista_nombres_aulas,
+                 lista_nombres_grupos, dict_grupo_materia_tiempo, turnos,
+                 dias, dict_profesores_a_materias, modelo: CpModel):
         super().__init__(lista_nombres_materias, dict_materias_por_tiempo, lista_nombres_profesores,
                          lista_nombres_aulas,
                          lista_nombres_grupos, dict_grupo_materia_tiempo, turnos,
@@ -161,10 +161,10 @@ class RestriccionAula(BaseDeResoluciónDeHorarios):
                     self.modelo.add(s <= 1)
 
 class RestriccionProfesor(BaseDeResoluciónDeHorarios):
-    def __init__(self, lista_nombres_materias: list[str], dict_materias_por_tiempo: dict[str, int], lista_nombres_profesores: list[str],
-                 lista_nombres_aulas: list[str],
-                 lista_nombres_grupos: list[str], dict_grupo_materia_tiempo: dict[str, dict[str, int]], turnos: list[int],
-                 dias: list[int], dict_profesores_a_materias: dict[str, list[str]], modelo: CpModel):
+    def __init__(self, lista_nombres_materias, dict_materias_por_tiempo, lista_nombres_profesores,
+                 lista_nombres_aulas,
+                 lista_nombres_grupos, dict_grupo_materia_tiempo, turnos,
+                 dias, dict_profesores_a_materias, modelo: CpModel):
         super().__init__(lista_nombres_materias, dict_materias_por_tiempo, lista_nombres_profesores,
                          lista_nombres_aulas,
                          lista_nombres_grupos, dict_grupo_materia_tiempo, turnos,
@@ -207,10 +207,10 @@ class RestriccionProfesor(BaseDeResoluciónDeHorarios):
 
 
 class RestriccionesOpcionales(BaseDeResoluciónDeHorarios):
-    def __init__(self, lista_nombres_materias: list[str], dict_materias_por_tiempo: dict[str, int], lista_nombres_profesores: list[str],
-                 lista_nombres_aulas: list[str],
-                 lista_nombres_grupos: list[str], dict_grupo_materia_tiempo: dict[str, dict[str, int]], turnos: list[int],
-                 dias: list[int], dict_profesores_a_materias: dict[str, list[str]], modelo: CpModel):
+    def __init__(self, lista_nombres_materias, dict_materias_por_tiempo, lista_nombres_profesores,
+                 lista_nombres_aulas,
+                 lista_nombres_grupos, dict_grupo_materia_tiempo, turnos,
+                 dias, dict_profesores_a_materias, modelo: CpModel):
         super().__init__(lista_nombres_materias, dict_materias_por_tiempo, lista_nombres_profesores,
                          lista_nombres_aulas,
                          lista_nombres_grupos, dict_grupo_materia_tiempo, turnos,
@@ -220,7 +220,7 @@ class RestriccionesOpcionales(BaseDeResoluciónDeHorarios):
 
 
 class PlanificadorHorario(BaseDeResoluciónDeHorarios):
-    def _lista_para_dataframe(self, profesor, asignatura, aula, grupo, turno, dia) -> list[dict]:
+    def _lista_para_dataframe(self, profesor, asignatura, aula, grupo, turno, dia):
         datos = []
         # Agregar los datos a la lista como un diccionario
         datos.append({
@@ -233,8 +233,8 @@ class PlanificadorHorario(BaseDeResoluciónDeHorarios):
         })
         return datos
 
-    def _obtener_dic_materias_a_profesores(self, profesores: list[str], asignaturas: list[str],
-                                           dict_profesores_a_materias: dict[str, list[str]]) -> dict[str, list[str]]:
+    def _obtener_dic_materias_a_profesores(self, profesores, asignaturas,
+                                           dict_profesores_a_materias) :
         respuesta: dict[str, list[str]] = {}
         # Inicializar el diccionario
         for nombre_asignatura in asignaturas:
@@ -242,16 +242,16 @@ class PlanificadorHorario(BaseDeResoluciónDeHorarios):
 
         # Asignar profesores a cada asignatura
         for nombre_profesor in profesores:
-            lista_asignaturas: list[str] = dict_profesores_a_materias[nombre_profesor]
+            lista_asignaturas  = dict_profesores_a_materias[nombre_profesor]
             for nombre_asignatura in lista_asignaturas:
                 respuesta[nombre_asignatura].append(nombre_profesor)
 
         return respuesta
 
-    def __init__(self, lista_nombres_materias: list[str], dict_materias_por_tiempo: dict[str, int],
-                 lista_nombres_profesores: list[str], lista_nombres_aulas: list[str],
-                 lista_nombres_grupos: list[str], dict_grupo_materia_tiempo: dict[str, dict[str, int]], turnos: list[int],
-                 dias: list[int], dict_profesores_a_materias: dict[str, list[str]]):
+    def __init__(self, lista_nombres_materias, dict_materias_por_tiempo,
+                 lista_nombres_profesores, lista_nombres_aulas,
+                 lista_nombres_grupos, dict_grupo_materia_tiempo, turnos,
+                 dias, dict_profesores_a_materias):
         super().__init__(lista_nombres_materias, dict_materias_por_tiempo, lista_nombres_profesores,
                          lista_nombres_aulas,
                          lista_nombres_grupos, dict_grupo_materia_tiempo, turnos,
@@ -355,7 +355,7 @@ class PlanificadorHorario(BaseDeResoluciónDeHorarios):
         dic = self.dict_grupo_materia_tiempo[nombre_grupo]
         return nombre_asignatura in dic
 
-    def _obtener_lista_de_asignaturas_posibles_para_grupo(self, nombre_grupo: str) -> list[str]:
+    def _obtener_lista_de_asignaturas_posibles_para_grupo(self, nombre_grupo: str):
         if nombre_grupo not in self.dict_grupo_asignatura:
             raise Exception(f'El grupo {nombre_grupo} no se encuentra en el dict_grupo_asignatura')
         return self.dict_grupo_asignatura[nombre_grupo]
@@ -481,9 +481,8 @@ class PlanificadorHorario(BaseDeResoluciónDeHorarios):
         else:
             return dict_grupo_resultado
 
-    def _verificar_restricciones(self, nombres_profesores: list[str], nombres_asignaturas: list[str],
-                                nombres_aulas: list[str], nombres_grupos: list[str]
-                                , turnos_int: list[int], dias_int: list[int]):
+    def _verificar_restricciones(self, nombres_profesores, nombres_asignaturas,
+                                nombres_aulas, nombres_grupos, turnos_int, dias_int):
         """
         Chequea que las restricciones tengan sus valores en la entrada original
         :param nombres_profesores:
@@ -501,9 +500,8 @@ class PlanificadorHorario(BaseDeResoluciónDeHorarios):
         self._verificar_existencia_en_lista(turnos_int, self.turnos, "Turno")
         self._verificar_existencia_en_lista(dias_int, self.dias, "Día")
 
-    def _crear_sumatoria_para_restriccion_hard_opcional(self, nombres_profesores: list[str], nombres_asignaturas: list[str],
-                                                        nombres_aulas: list[str], nombres_grupos: list[str]
-                                                        , turnos_int: list[int], dias_int: list[int]):
+    def _crear_sumatoria_para_restriccion_hard_opcional(self, nombres_profesores, nombres_asignaturas,
+                                                        nombres_aulas, nombres_grupos, turnos_int, dias_int):
         """Crea la sumatoria de las combinaciones
         de las listas que se le pasan para que después se puedan asignar
         si se debe cumplir la restricción s==1 o no s==0"""
@@ -519,9 +517,9 @@ class PlanificadorHorario(BaseDeResoluciónDeHorarios):
             raise Exception(f"Error al crear la sumatoria para las restricciones opcionales: {str(e)}")
 
     # Chequear los profesores
-    def agregar_restricciones_hard_opcionales(self, nombres_profesores: list[str], nombres_asignaturas: list[str],
-                                            nombres_aulas: list[str], nombres_grupos: list[str]
-                                            , turnos_int: list[int], dias_int: list[int], contar_igual_a: int):
+    def agregar_restricciones_hard_opcionales(self, nombres_profesores , nombres_asignaturas ,
+                                            nombres_aulas , nombres_grupos 
+                                            , turnos_int , dias_int , contar_igual_a: int):
         """Se da una lista de anterior que tiene añade una condición hard que la
         combinatoria de lo que está en las listas sume contar_igual_a, o sea, se tiene que cumplir.
         OJO: Peligroso de usar, se recomienda usar agregar_restricciones_hard_falsas si se quiere restringir o
@@ -540,27 +538,27 @@ class PlanificadorHorario(BaseDeResoluciónDeHorarios):
         except Exception as e:
             raise Exception(f'Error al agregar restricciones opcionales: {str(e)}')
 
-    def agregar_restricciones_hard_falsas(self, nombres_profesores: list[str], nombres_asignaturas: list[str],
-                                        nombres_aulas: list[str], nombres_grupos: list[str]
-                                        , turnos_int: list[int], dias_int: list[int]):
+    def agregar_restricciones_hard_falsas(self, nombres_profesores , nombres_asignaturas ,
+                                        nombres_aulas , nombres_grupos 
+                                        , turnos_int , dias_int ):
         """Se da una lista de anterior que tiene añade una condición hard que la
         combinatoria de lo que está en las listas sume 0, o sea, se tiene que cumplir."""
 
         self.agregar_restricciones_hard_opcionales(nombres_profesores, nombres_asignaturas, nombres_aulas, nombres_grupos,
                                                 turnos_int, dias_int, 0)
 
-    def agregar_restricciones_hard_verdaderas(self, nombres_profesores: list[str], nombres_asignaturas: list[str],
-                                            nombres_aulas: list[str], nombres_grupos: list[str]
-                                            , turnos_int: list[int], dias_int: list[int]):
+    def agregar_restricciones_hard_verdaderas(self, nombres_profesores , nombres_asignaturas ,
+                                            nombres_aulas , nombres_grupos 
+                                            , turnos_int , dias_int ):
         """Se da una lista de anterior que tiene añade una condición hard que la
         combinatoria de lo que está en las listas sume 1, o sea, se tiene que cumplir."""
 
         self.agregar_restricciones_hard_opcionales(nombres_profesores, nombres_asignaturas, nombres_aulas, nombres_grupos,
                                                 turnos_int, dias_int, 1)
 
-    def agregar_restricciones_suaves_maximizar(self, nombres_profesores: list[str], nombres_asignaturas: list[str],
-                                            nombres_aulas: list[str], nombres_grupos: list[str]
-                                            , turnos_int: list[int], dias_int: list[int], valor_alpha: int):
+    def agregar_restricciones_suaves_maximizar(self, nombres_profesores , nombres_asignaturas ,
+                                            nombres_aulas , nombres_grupos 
+                                            , turnos_int , dias_int , valor_alpha: int):
         if valor_alpha <= 0:
             raise Exception(f"El valor_alpha debe ser estrictamente positivo y es {valor_alpha}")
         """
@@ -573,9 +571,9 @@ class PlanificadorHorario(BaseDeResoluciónDeHorarios):
 
         self.modelo.Maximize(valor_alpha * s)
 
-    def agregar_restricciones_suaves_minimizar(self, nombres_profesores: list[str], nombres_asignaturas: list[str],
-                                            nombres_aulas: list[str], nombres_grupos: list[str]
-                                            , turnos_int: list[int], dias_int: list[int], valor_alpha: int):
+    def agregar_restricciones_suaves_minimizar(self, nombres_profesores , nombres_asignaturas ,
+                                            nombres_aulas , nombres_grupos 
+                                            , turnos_int , dias_int , valor_alpha: int):
         """
         Agrega una condición suave que trata de optimizar para que se cumpla.
         Al minimizar un valor positivo, da prioridad a que no se cumpla o se cumpla lo menos posible.

@@ -11,7 +11,7 @@ class ProfesorDesconocido(Profesor):
 
 
 class Asignatura:
-    def __init__(self, nombre: str, grupos_posibles: list[str], profesores_posibles: dict[str, Profesor]):
+    def __init__(self, nombre: str, grupos_posibles, profesores_posibles):
 
         self.nombre = nombre
         self.grupos_posibles: list[str] = copy.deepcopy(grupos_posibles)
@@ -45,7 +45,7 @@ class AsignaturaDesconocida(Asignatura):
 
 
 class Aula:
-    def __init__(self, nombre: str, dict_asignaturas: dict[str, Asignatura]):
+    def __init__(self, nombre: str, dict_asignaturas):
         """
         Inicializa el objeto con el nombre proporcionado y el diccionario de asignaturas.
 
@@ -89,7 +89,7 @@ class Aula:
         self.asignatura.agregar_grupo(nombre_asignatura, nombre_grupo, nombre_profesor)
 
 class Turnos:
-    def __init__(self, nombre: str, dia: str, nombres_aulas: list[str], dict_asignaturas: dict[str:Asignatura]):
+    def __init__(self, nombre: str, dia: str, nombres_aulas, dict_asignaturas):
         self.nombre: str = nombre
         self.dia: str = dia
         self.nombres_aulas: list[str] = copy.deepcopy(nombres_aulas)
@@ -126,7 +126,7 @@ class Turnos:
         self.aulas[nombre_aula].agregar_asignatura_en_grupo_y_carrera(nombre_asignatura, nombre_grupo, nombre_profesor)
 
 class Grupo:
-    def __init__(self, nombre: str, materias_por_tiempo: dict[str, int]):
+    def __init__(self, nombre: str, materias_por_tiempo):
         self.nombre = nombre
         self.materias_por_tiempo: dict[str, int] = copy.deepcopy(materias_por_tiempo)
         self.contador_materias_actual_por_tiempo: dict[str, int] = {}
@@ -148,11 +148,11 @@ class Grupo:
                     f"En el grupo {self.nombre}, la materia {nombre_materia} debería tener {tiempo_prometido} horas de clase a la semana y tiene {tiempo_real}")
 
 class CalendarioBase:
-    def __init__(self, nombres_materias: list[str], nombres_profesores: list[str],
-                 posibles_profesores_por_materia: dict[str, list[str]],
-                 grupos_por_asignatura_por_tiempo_semanal: dict[str, dict[str, int]],
+    def __init__(self, nombres_materias, nombres_profesores,
+                 posibles_profesores_por_materia,
+                 grupos_por_asignatura_por_tiempo_semanal,
                  cantidad_dias=5, cantidad_turnos=3,
-                 nombres_aulas: list[str] = ["1", "2", "postgrado"], nombres_grupos: list[str] = ["C111", "C112"]):
+                 nombres_aulas = ["1", "2", "postgrado"], nombres_grupos = ["C111", "C112"]):
        
         self.cantidad_dias = cantidad_dias
         self.cantidad_turnos = cantidad_turnos
@@ -161,10 +161,10 @@ class CalendarioBase:
         self.posibles_profesores_por_materia: dict[str, list[str]] = posibles_profesores_por_materia
         self.nombres_aulas = nombres_aulas
         self.nombres_grupos = nombres_grupos
-        self.grupos_por_asignatura_por_tiempo_semanal: dict[str:list[tuple[str, int]]] = grupos_por_asignatura_por_tiempo_semanal
+        self.grupos_por_asignatura_por_tiempo_semanal = grupos_por_asignatura_por_tiempo_semanal
 
 class Calendario(CalendarioBase):
-    def __add_to_dict_grupos_posibles_por_asignatura(self, nombre_grupo: str, lista_asignaturas: list[str]):
+    def __add_to_dict_grupos_posibles_por_asignatura(self, nombre_grupo: str, lista_asignaturas):
         """
         Añade al diccionario que tiene como clave el nombre de la asignatura los posibles grupos que pueden recibir esta.
         :param nombre_grupo:
@@ -199,7 +199,7 @@ class Calendario(CalendarioBase):
             lista_nombres_asignaturas = list(diccionario.keys())
             self.__add_to_dict_grupos_posibles_por_asignatura(nombre_grupo, lista_nombres_asignaturas)
 
-    def __obtener_profesores_posibles_por_asignatura(self, nombre_asignatura: str) -> dict[str, Profesor]:
+    def __obtener_profesores_posibles_por_asignatura(self, nombre_asignatura: str) :
         """
         Dado un nombre de materia, devuelve un diccionario que tiene el nombre del profesor y el profesor.
 
@@ -239,11 +239,11 @@ class Calendario(CalendarioBase):
         self.__iniciar_asignaturas()
         self.__iniciar_turnos()
 
-    def __init__(self, nombres_materias: list[str], nombres_profesores: list[str],
-                 posibles_profesores_por_materia: dict[str, list[str]],
-                 grupos_por_asignatura_por_tiempo_semanal: dict[str, dict[str, int]],
+    def __init__(self, nombres_materias, nombres_profesores,
+                 posibles_profesores_por_materia,
+                 grupos_por_asignatura_por_tiempo_semanal,
                  cantidad_dias=5, cantidad_turnos=3,
-                 nombres_aulas: list[str] = ["1", "2", "postgrado"], nombres_grupos: list[str] = ["C111", "C112"]):
+                 nombres_aulas = ["1", "2", "postgrado"], nombres_grupos = ["C111", "C112"]):
         super().__init__(nombres_materias, nombres_profesores, posibles_profesores_por_materia,
                          grupos_por_asignatura_por_tiempo_semanal, cantidad_dias, cantidad_turnos,
                          nombres_aulas, nombres_grupos)
@@ -297,11 +297,11 @@ class Calendario(CalendarioBase):
             grupo.verificar_todo_correcto()
 
 class Restricciones_Adicionales_Fuertes(CalendarioBase):
-    def __init__(self, nombres_materias: list[str], nombres_profesores: list[str],
-                 posibles_profesores_por_materia: dict[str, list[str]],
-                 grupos_por_asignatura_por_tiempo_semanal: dict[str, dict[str, int]],
+    def __init__(self, nombres_materias, nombres_profesores,
+                 posibles_profesores_por_materia,
+                 grupos_por_asignatura_por_tiempo_semanal,
                  cantidad_dias=5, cantidad_turnos=3,
-                 nombres_aulas: list[str] = ["1", "2", "postgrado"], nombres_grupos: list[str] = ["C111", "C112"]):
+                 nombres_aulas = ["1", "2", "postgrado"], nombres_grupos = ["C111", "C112"]):
         
         super().__init__(nombres_materias, nombres_profesores, posibles_profesores_por_materia,
                          grupos_por_asignatura_por_tiempo_semanal, cantidad_dias, cantidad_turnos,
