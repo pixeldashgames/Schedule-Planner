@@ -4,7 +4,7 @@ from solucion import PlanificadorHorario
 import json
 
 def load_data_from_json(file_path):
-    with open(file_path, 'r') as json_file:
+    with open(file_path, 'r', encoding = "utf8") as json_file:
         data = json.load(json_file)
     return data
 

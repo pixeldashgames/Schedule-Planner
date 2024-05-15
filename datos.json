@@ -1,73 +1,169 @@
 {
-    "subjects": ["Programacion", "ProgramacionCp", "Algebra", "AlgebraCP", "Analisis", "AnalisisCp", "Logica", "LogicaCp" ],
+    "subjects": ["Análisis Exploratorio de Datos", "Análisis Exploratorio de Datos CP", "Matemática Numérica (D)", "Matemática Numérica (D) CP", "Programación (D)", "Programación (D) CP", "Análisis Matemático II (D)", "Análisis Matemático II (D) CP", "Comunicación en Ciencia de Datos", "Comunicación en Ciencia de Datos CP", "Historia de Cuba (D)", "Eduacación Física II (D)", "Álgebra II", "Álgebra II CP", "Programación (C)", "Programación (C) CP", "Análisis Matemático II (C)", "Análisis Matemático II (C) CP", "Economía Política", "Historia de Cuba (C)", "Educación Física II (C)", "Compilación", "Compilación CP", "Sistema de Recuperación de Información", "Sistema de Recuperación de Información CP", "Inteligencia Artificial", "Inteligencia Artificial CP", "Simulación", "Simulación CP", "Modelos de Optimización (C)", "Modelos de Optimización (C) CP", "Modelos Matemáticos Aplicados", "Funciones de una Variable Real", "Funciones de una Variable Real CP", "Álgebra Lineal", "Álgebra Lineal CP", "Programación y Algoritmos", "Programación y Algoritmos CP", "Seminario de Problemas I", "Historia de Cuba (M)", "Educación Física II (M)", "Topología", "Topología CP", "Ecuaciones en Derivadas Parciales", "Ecuaciones en Derivadas Parciales CP", "Mecánica Clásica", "Mecánica Clásica CP", "Optimización Matemática II", "Optimización Matemática II CP", "Matemática Numérica (M)", "Matemática Numérica (M) CP", "Seminario de Problemas III", "Asignatura Optativa I (M)"],
     "subject_times": {
-        "Programacion": 1,
-        "ProgramacionCp": 2,
-        "Algebra": 1,
-        "AlgebraCP": 2,
-        "Analisis": 1,
-        "AnalisisCp": 2,
-        "Logica": 1,
-        "LogicaCp": 1
+        "Análisis Exploratorio de Datos": 1,
+        "Análisis Exploratorio de Datos CP": 1,
+        "Matemática Numérica (D)": 1,
+        "Matemática Numérica (D) CP": 1,
+        "Programación (D)": 1,
+        "Programación (D) CP": 1,
+        "Análisis Matemático II (D)": 1,
+        "Análisis Matemático II (D) CP": 1,
+        "Comunicación en Ciencia de Datos": 1,
+        "Comunicación en Ciencia de Datos CP": 1,
+        "Historia de Cuba (D)": 2,
+        "Eduacación Física II (D)": 1,
+        "Álgebra II": 1,
+        "Álgebra II CP": 1,
+        "Programación (C)": 1,
+        "Programación (C) CP": 1,
+        "Análisis Matemático II (C)": 1,
+        "Análisis Matemático II (C) CP": 1,
+        "Economía Política": 2,
+        "Historia de Cuba (C)": 2,
+        "Educación Física II (C)": 1,
+        "Compilación": 1,
+        "Compilación CP": 1,
+        "Sistema de Recuperación de Información": 1,
+        "Sistema de Recuperación de Información CP": 1,
+        "Inteligencia Artificial": 1,
+        "Inteligencia Artificial CP": 1,
+        "Simulación": 1,
+        "Simulación CP": 1,
+        "Modelos de Optimización (C)": 1,
+        "Modelos de Optimización (C) CP": 1,
+        "Modelos Matemáticos Aplicados": 1,
+        "Funciones de una Variable Real": 1,
+        "Funciones de una Variable Real CP": 1,
+        "Álgebra Lineal": 1,
+        "Álgebra Lineal CP": 1,
+        "Programación y Algoritmos": 1,
+        "Programación y Algoritmos CP": 1,
+        "Seminario de Problemas I": 1,
+        "Historia de Cuba (M)": 2,
+        "Educación Física II (M)": 1,
+        "Topología": 1,
+        "Topología CP": 1,
+        "Ecuaciones en Derivadas Parciales": 1,
+        "Ecuaciones en Derivadas Parciales CP": 1,
+        "Mecánica Clásica": 1,
+        "Mecánica Clásica CP": 1,
+        "Optimización Matemática II": 1,
+        "Optimización Matemática II CP": 1,
+        "Matemática Numérica (M)": 1,
+        "Matemática Numérica (M) CP": 1,
+        "Seminario de Problemas III": 1,
+        "Asignatura Optativa I (M)": 1
+
     },
-    "teachers": ["Piad","Idania", "Celia", "Yudivian", "DanielL", "OmarL", "CarmenL", "ErnestoA", "CristinaA", "MercedesA", "DalianisAL", "PepeAl", "CayetanaAL", "PacoP", "HectorP", "CarlaP"],
-    "classrooms": ["1", "2", "3", "4", "5"],
-    "groups": ["C111", "C112", "C113", "C114", "C115"],
+    "teachers": ["Vivian Sistachs", "Miguel Ángel Díaz", "Marcos Torres", "Ángela León", "Rocio Ortiz", "Lázaro D. Glez", "Carlos David", "Ernesto Alejandro López", "Yudivián", "Lisandra", "Gemayzel Bouza", "Aymee Marrero", "Daniela", "Merling Sabater", "Rolando Sanchéz", "Piad", "Daniel", "Celia Tamara", "Dalianys Pérez", "Miguel Antonio Glez", "Juan Pablo", "Yeneit", "Joana", "Gabriel", "Guaty", "Idania Urrutia", "Oscar de Moya", "Ania Mesa", "Carlos León", "Alejandra Monzon", "Laura Riera", "Alejandro Beltrán", "Rolando", "Deborah", "Elena", "Fernándo Rguez", "Valentina Badí", "José Julián Díaz Pérez", "David Balbuena", "Leyanis Falcón", "Alejandro Mesejo", "Daniela González", "Manuel Valiente", "Carlos N. Bouza", "Raúl Guinovart", "Wilfredo Morales", "Mariano Rguez", "Alicia Pérez", "Reinaldo Rodríguez", "Roberto Bernal", "Sira Allende", "Mauricio", "Odette Pantoja", "Un Profe de Historia", "Profe de EF 1", "Profe de EF 2", "Profe de Practicas", "Profe de Economía Política", "Profe Optativo"],
+    "classrooms": ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+    "groups": ["D111", "C111", "C112", "C121", "C311", "C312", "M111", "M311"],
     "group_subject_times": {
-        "C111": {
-            "Programacion": 1,
-            "ProgramacionCp": 2,
-            "Algebra": 1,
-            "AlgebraCP": 2,
-            "Analisis": 1,
-            "AnalisisCp": 2,
-            "Logica": 1,
-            "LogicaCp": 1
-        
+
+        "D111":{
+            "Análisis Exploratorio de Datos": 1,
+            "Análisis Exploratorio de Datos CP": 1,
+            "Matemática Numérica (D)": 1,
+            "Matemática Numérica (D) CP": 1,
+            "Programación (D)": 1,
+            "Programación (D) CP": 1,
+            "Análisis Matemático II (D)": 1,
+            "Análisis Matemático II (D) CP": 1,
+            "Comunicación en Ciencia de Datos": 1,
+            "Comunicación en Ciencia de Datos CP": 1,
+            "Historia de Cuba (D)": 2,
+            "Eduacación Física II (D)": 1
         },
-        "C112": {
-            "Programacion": 1,
-            "ProgramacionCp": 2,
-            "Algebra": 1,
-            "AlgebraCP": 2,
-            "Analisis": 1,
-            "AnalisisCp": 2,
-            "Logica": 1,
-            "LogicaCp": 1
-        
+
+        "C111":{
+            "Álgebra II": 1,
+            "Álgebra II CP": 1,
+            "Programación (C)": 1,
+            "Programación (C) CP": 1,
+            "Análisis Matemático II (C)": 1,
+            "Análisis Matemático II (C) CP": 1,
+            "Economía Política": 2,
+            "Historia de Cuba (C)": 2,
+            "Educación Física II (C)": 1
+        }, 
+
+        "C112":{
+            "Álgebra II": 1,
+            "Álgebra II CP": 1,
+            "Programación (C)": 1,
+            "Programación (C) CP": 1,
+            "Análisis Matemático II (C)": 1,
+            "Análisis Matemático II (C) CP": 1,
+            "Economía Política": 2,
+            "Historia de Cuba (C)": 2,
+            "Educación Física II (C)": 1
+        }, 
+        "C121":{
+            "Álgebra II": 1,
+            "Álgebra II CP": 1,
+            "Programación (C)": 1,
+            "Programación (C) CP": 1,
+            "Análisis Matemático II (C)": 1,
+            "Análisis Matemático II (C) CP": 1,
+            "Economía Política": 2,
+            "Historia de Cuba (C)": 2,
+            "Educación Física II (C)": 1
         },
-        "C113": {
-            "Programacion": 1,
-            "ProgramacionCp": 2,
-            "Algebra": 1,
-            "AlgebraCP": 2,
-            "Analisis": 1,
-            "AnalisisCp": 2,
-            "Logica": 1,
-            "LogicaCp": 1
         
+        "C311":{
+            "Compilación": 1,
+            "Compilación CP": 1,
+            "Sistema de Recuperación de Información": 1,
+            "Sistema de Recuperación de Información CP": 1,
+            "Inteligencia Artificial": 1,
+            "Inteligencia Artificial CP": 1,
+            "Simulación": 1,
+            "Simulación CP": 1,
+            "Modelos de Optimización (C)": 1,
+            "Modelos de Optimización (C) CP": 1,
+            "Modelos Matemáticos Aplicados": 1
         },
-        "C114": {
-            "Programacion": 1,
-            "ProgramacionCp": 2,
-            "Algebra": 1,
-            "AlgebraCP": 2,
-            "Analisis": 1,
-            "AnalisisCp": 2,
-            "Logica": 1,
-            "LogicaCp": 1
         
+        "C312":{
+            "Compilación": 1,
+            "Compilación CP": 1,
+            "Sistema de Recuperación de Información": 1,
+            "Sistema de Recuperación de Información CP": 1,
+            "Inteligencia Artificial": 1,
+            "Inteligencia Artificial CP": 1,
+            "Simulación": 1,
+            "Simulación CP": 1,
+            "Modelos de Optimización (C)": 1,
+            "Modelos de Optimización (C) CP": 1,
+            "Modelos Matemáticos Aplicados": 1
         },
-        "C115": {
-            "Programacion": 1,
-            "ProgramacionCp": 2,
-            "Algebra": 1,
-            "AlgebraCP": 2,
-            "Analisis": 1,
-            "AnalisisCp": 2,
-            "Logica": 1,
-            "LogicaCp": 1
         
+        "M111":{
+            "Funciones de una Variable Real": 1,
+            "Funciones de una Variable Real CP": 1,
+            "Álgebra Lineal": 1,
+            "Álgebra Lineal CP": 1,
+            "Programación y Algoritmos": 1,
+            "Programación y Algoritmos CP": 1,
+            "Seminario de Problemas I": 1,
+            "Historia de Cuba (M)": 2,
+            "Educación Física II (M)": 1
+        },
+        
+        "M311":{
+            "Topología": 1,
+            "Topología CP": 1,
+            "Ecuaciones en Derivadas Parciales": 1,
+            "Ecuaciones en Derivadas Parciales CP": 1,
+            "Mecánica Clásica": 1,
+            "Mecánica Clásica CP": 1,
+            "Optimización Matemática II": 1,
+            "Optimización Matemática II CP": 1,
+            "Matemática Numérica (M)": 1,
+            "Matemática Numérica (M) CP": 1,
+            "Seminario de Problemas III": 1,
+            "Asignatura Optativa I (M)": 1
         }
     },
 
@@ -76,101 +172,82 @@
     "days": [1, 2, 3, 4, 5],
 
     "teachers_to_subjects": {
-        "Piad": ["Programacion"],
-        "Idania": ["Analisis"],
-        "Celia": ["Algebra"],
-        "Yudivian": ["Logica"],
-        "DanielL": ["LogicaCp"],
-        "OmarL": ["LogicaCp"],
-        "CarmenL": ["LogicaCp"],
-        "ErnestoA": ["AnalisisCp"],
-        "CristinaA": ["AnalisisCp"],
-        "MercedesA": ["AnalisisCp"],
-        "DalianisAL": ["AlgebraCP"],
-        "PepeAl": ["AlgebraCP"],
-        "CayetanaAL": ["AlgebraCP"],
-        "PacoP": ["ProgramacionCp"],
-        "HectorP" : ["ProgramacionCp"],
-        "CarlaP" : ["ProgramacionCp"]
-        
+        "Vivian Sistachs": ["Análisis Exploratorio de Datos"],
+        "Miguel Ángel Díaz": ["Análisis Exploratorio de Datos CP"],
+        "Marcos Torres": ["Análisis Exploratorio de Datos CP"],
+        "Ángela León": ["Matemática Numérica (D)"],
+        "Rocio Ortiz": ["Matemática Numérica (D) CP", "Modelos de Optimización (C) CP"],
+        "Lázaro D. Glez": ["Matemática Numérica (D) CP"],
+        "Carlos David": ["Programación (D)","Programación (D) CP"],
+        "Ernesto Alejandro López": ["Análisis Matemático II (D)", "Análisis Matemático II (D) CP"],
+        "Yudivián": ["Comunicación en Ciencia de Datos"],
+        "Lisandra": ["Comunicación en Ciencia de Datos CP"],
+        "Gemayzel Bouza": ["Modelos de Optimización (C)", "Optimización Matemática II CP"],
+        "Aymee Marrero": ["Modelos de Optimización (C) CP", "Modelos Matemáticos Aplicados"],
+        "Daniela": ["Modelos de Optimización (C) CP"],
+        "Merling Sabater": ["Modelos de Optimización (C) CP"],
+        "Rolando Sanchéz": ["Modelos Matemáticos Aplicados"],
+        "Piad": ["Inteligencia Artificial"],
+        "Daniel": ["Simulación"],
+        "Celia Tamara": ["Álgebra II"],
+        "Dalianys Pérez": ["Álgebra II CP"],
+        "Miguel Antonio Glez": ["Álgebra II CP"],
+        "Juan Pablo": ["Programación (C)", "Compilación"],
+        "Yeneit": ["Programación (C) CP"],
+        "Joana": ["Programación (C) CP"],
+        "Gabriel": ["Programación (C) CP", "Compilación CP"],
+        "Guaty": ["Programación (C) CP"],
+        "Idania Urrutia": ["Análisis Matemático II (C)"],
+        "Oscar de Moya": ["Análisis Matemático II (C) CP"],
+        "Ania Mesa": ["Análisis Matemático II (C) CP"],
+        "Carlos León": ["Sistema de Recuperación de Información"],
+        "Alejandra Monzon": ["Modelos Matemáticos Aplicados"],
+        "Laura Riera": ["Sistema de Recuperación de Información CP"],
+        "Alejandro Beltrán": ["Sistema de Recuperación de Información CP"],
+        "Rolando": ["Inteligencia Artificial CP"],
+        "Deborah": ["Inteligencia Artificial CP", "Simulación CP"],
+        "Elena": ["Simulación CP"],
+        "Fernándo Rguez": ["Modelos Matemáticos Aplicados", "Matemática Numérica (M)"],
+        "Valentina Badí": ["Funciones de una Variable Real"],
+        "José Julián Díaz Pérez": ["Funciones de una Variable Real CP"],
+        "David Balbuena": ["Álgebra Lineal"],
+        "Leyanis Falcón": ["Álgebra Lineal CP"],
+        "Alejandro Mesejo": ["Programación y Algoritmos"],
+        "Daniela González": ["Programación y Algoritmos CP"],
+        "Manuel Valiente": ["Programación y Algoritmos CP"],
+        "Carlos N. Bouza": ["Seminario de Problemas I"],
+        "Raúl Guinovart": ["Topología"],
+        "Wilfredo Morales": ["Topología CP"],
+        "Mariano Rguez": ["Ecuaciones en Derivadas Parciales"],
+        "Alicia Pérez": ["Ecuaciones en Derivadas Parciales CP"],
+        "Reinaldo Rodríguez": ["Mecánica Clásica"],
+        "Roberto Bernal": ["Mecánica Clásica CP"],
+        "Sira Allende": ["Optimización Matemática II"],
+        "Mauricio": ["Optimización Matemática II CP"],
+        "Odette Pantoja": ["Matemática Numérica (M) CP"],
+        "Un Profe de Historia": ["Historia de Cuba (D)", "Historia de Cuba (C)", "Historia de Cuba (M)"],
+        "Profe de EF 1": ["Eduacación Física II (D)", "Educación Física II (M)"],
+        "Profe de EF 2": ["Educación Física II (C)"],
+        "Profe de Practicas": ["Seminario de Problemas III"],
+        "Profe de Economía Política": ["Economía Política"],
+        "Profe Optativo": ["Asignatura Optativa I (M)"]
     },
 
     "hards_true": {
 
-        "A":{  
-            "teachers_names": ["Piad", "Idania"],
-            "subjects_names": ["Programacion", "ProgramacionCp", "Algebra", "AlgebraCP", "Analisis", "AnalisisCp", "Logica", "LogicaCp"],
-            "classrooms_names": ["1", "2", "3", "4", "5"],
-            "groups_names": ["C112"],
-            "shifts": [1, 2],
-            "days": [1]
-        },
-
-        "B":{  
-            "teachers_names": ["Yudivian"],
-            "subjects_names": ["Programacion", "ProgramacionCp", "Algebra", "AlgebraCP", "Analisis", "AnalisisCp", "Logica", "LogicaCp"],
-            "classrooms_names": ["1", "2", "3"],
-            "groups_names": ["C114"],
-            "shifts": [1, 2, 3],
-            "days": [1, 2, 3, 4, 5]
-        }
     },
 
     "hards_false": {
 
-        "A":{  
-            "teachers_names": ["Piad","Idania", "Celia", "Yudivian", "DanielL", "OmarL", "CarmenL", "ErnestoA", "CristinaA", "MercedesA", "DalianisAL", "PepeAl", "CayetanaAL", "PacoP", "HectorP", "CarlaP"],
-            "subjects_names": ["Programacion", "ProgramacionCp", "Algebra", "AlgebraCP", "Analisis", "AnalisisCp", "Logica", "LogicaCp"],
-            "classrooms_names": ["1", "2", "3", "4", "5"],
-            "groups_names": ["C111", "C112", "C113", "C114", "C115"],
-            "shifts": [1],
-            "days": [5]
-        },
-
-        "B":{  
-            "teachers_names": ["Yudivian"],
-            "subjects_names": ["Programacion", "ProgramacionCp", "Algebra", "AlgebraCP", "Analisis", "AnalisisCp", "Logica", "LogicaCp"],
-            "classrooms_names": ["5"],
-            "groups_names": ["C111", "C112", "C113", "C114", "C115"],
-            "shifts": [1, 2, 3],
-            "days": [1, 2, 3, 4, 5]
-        }
     },
 
     "softs_max": {
 
-        "A":{  
-            "teachers_names": ["Piad","Idania", "Celia", "Yudivian", "DanielL", "OmarL", "CarmenL", "ErnestoA", "CristinaA", "MercedesA", "DalianisAL", "PepeAl", "CayetanaAL", "PacoP", "HectorP", "CarlaP"],
-            "subjects_names": ["Programacion"],
-            "classrooms_names": ["1", "2", "3", "4", "5"],
-            "groups_names": ["C111", "C112", "C113", "C114", "C115"],
-            "shifts": [3],
-            "days": [2],
-            "alpha": 99
-        }
+    
     },
 
     "softs_min": {
 
-        "A":{  
-            "teachers_names": ["Piad","Idania", "Celia", "Yudivian", "DanielL", "OmarL", "CarmenL", "ErnestoA", "CristinaA", "MercedesA", "DalianisAL", "PepeAl", "CayetanaAL", "PacoP", "HectorP", "CarlaP"],
-            "subjects_names": ["Programacion", "ProgramacionCp", "Algebra", "AlgebraCP", "Analisis", "AnalisisCp", "Logica", "LogicaCp"],
-            "classrooms_names": ["1", "2", "3", "4", "5"],
-            "groups_names": ["C111", "C112", "C113", "C114", "C115"],
-            "shifts": [1, 2, 3],
-            "days": [5],
-            "alpha": 99
-        },
-
-        "B":{  
-            "teachers_names": ["Piad","Idania", "Celia", "Yudivian", "DanielL", "OmarL", "CarmenL", "ErnestoA", "CristinaA", "MercedesA", "DalianisAL", "PepeAl", "CayetanaAL", "PacoP", "HectorP", "CarlaP"],
-            "subjects_names": ["Programacion", "ProgramacionCp", "Algebra", "AlgebraCP", "Analisis", "AnalisisCp", "Logica", "LogicaCp"],
-            "classrooms_names": ["1", "2", "3", "4", "5"],
-            "groups_names": ["C111", "C112", "C113", "C114", "C115"],
-            "shifts": [3],
-            "days": [1, 2, 3, 4, 5],
-            "alpha": 9
-        }
     }
 
 
