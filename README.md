@@ -7,9 +7,6 @@
 - Anthuán Montes de Oca C411
 
 
-## Como usar el programa
-Para ejecutar el programa solamente tiene que ejecutar el archivo main.py usando el comando `py main.py`.
-
 ## Requerimientos
 Para poder ejecutar el programa se necesita tener instalado Python 3.8 o superior y las librerías puestas en requirements.txt
 
