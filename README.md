@@ -173,6 +173,10 @@ Las restricciones del modelo son las siguientes:
 - Restricciones opcionales: Las restricciones opcionales se manejan a través de los métodos agregar_restricciones_hard_opcionales, agregar_restricciones_hard_falsas, agregar_restricciones_hard_verdaderas, agregar_restricciones_suaves_maximizar y agregar_restricciones_suaves_minimizar. Estos métodos permiten agregar restricciones adicionales al modelo que pueden ser verdaderas o falsas, y que el modelo intentará maximizar o minimizar. Las restricciones "soft" se modelan agregando términos a la función objetivo que penalizan las violaciones de las restricciones "soft". Por ejemplo, si se tiene una restricción "soft" que se quiere maximizar, se podría agregar un término `alpha * s` a la función objetivo, donde s es la suma de las variables que representan la restricción "soft" y alpha es un coeficiente de ponderación.
 El objetivo del modelo es encontrar una asignación de asignaturas a aulas y profesores que cumpla con todas las restricciones.  El código también incluye la capacidad de agregar restricciones opcionales, que son restricciones que el modelo intentará cumplir pero que no son obligatorias. El modelo se resuelve utilizando el solucionador de programación de restricciones de OR-Tools. Una vez que se encuentra una solución, el código genera un horario que cumple con todas las restricciones y preferencias.
 
+
+## Resultados de ejecutar el programa
+- Evitar ejecutar para los 6 turnos del día, debido a la naturaleza del algoritmo, el mismo utiliza mucha memoria. Por tanto, programar las sesiones(mañana y tarde) por separado. 
+- 32 minutos rellenar los datos de cada sesión y 1:35 min resolver el modelo. Eso da un total de 1 hora 4 minutos de rellenar datos y 3:10 resolver el modelo.
 ## Beneficios del Proyecto
 - **Automatización**: Reduce el esfuerzo manual en la creación de horarios.
 - **Optimización**: Encuentra una solución óptima considerando diversas restricciones.
